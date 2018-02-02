@@ -26,8 +26,8 @@ import {
 } from "./Enums";
 import { IActionModel } from "./index";
 
-export type ContentReferenceField<T> = DeferredObject | T;
-export type ContentListReferenceField<T> = DeferredObject | T[];
+export type ContentReferenceField<T> = DeferredObject | T | number;
+export type ContentListReferenceField<T> = DeferredObject | T[] | number[];
 
 export type BinaryField = MediaResourceObject;
 
@@ -36,14 +36,14 @@ export type BinaryField = MediaResourceObject;
  * @class ContentType
  */
 export class ContentType {
-    public Id?: number;
+    public Id: number;
     public ParentId?: number;
     public VersionId?: number;
-    public Name?: string;
+    public Name: string;
     public CreatedById?: number;
     public ModifiedById?: number;
     public Version?: string;
-    public Path?: string;
+    public Path: string;
     public Depth?: number;
     public IsSystemContent?: boolean;
     public HandlerName?: string;
@@ -57,7 +57,7 @@ export class ContentType {
     public ModifiedBy?: ContentReferenceField<GenericContent>;
     public ModificationDate?: string;
     public EnableLifespan?: boolean;
-    public Actions?: ContentListReferenceField<IActionModel>;    
+    public Actions?: ContentListReferenceField<IActionModel>;
 }
 
 /**
@@ -65,17 +65,17 @@ export class ContentType {
  * @class GenericContent
  */
 export class GenericContent {
-    public Id?: number;
+    public Id: number;
     public ParentId?: number;
     public OwnerId?: number;
     public Owner?: ContentReferenceField<GenericContent>;
     public VersionId?: number;
     public Icon?: string;
-    public Name?: string;
+    public Name: string;
     public CreatedById?: number;
     public ModifiedById?: number;
     public Version?: string;
-    public Path?: string;
+    public Path: string;
     public Depth?: number;
     public IsSystemContent?: boolean;
     public IsFolder?: boolean;
@@ -86,8 +86,8 @@ export class GenericContent {
     public EnableLifespan?: boolean;
     public ValidFrom?: string;
     public ValidTill?: string;
-    public AllowedChildTypes?: string;
-    public EffectiveAllowedChildTypes?: string;
+    public AllowedChildTypes?: ContentListReferenceField<GenericContent>;
+    public EffectiveAllowedChildTypes?: ContentListReferenceField<GenericContent>;
     public VersioningMode?: VersioningMode;
     public InheritableVersioningMode?: InheritableVersioningMode;
     public CreatedBy?: ContentReferenceField<GenericContent>;
@@ -116,8 +116,8 @@ export class GenericContent {
     public RejectReason?: string;
     public Workspace?: ContentReferenceField<Workspace>;
     public BrowseUrl?: string;
-    public Type?: string;
     public Actions?: ContentListReferenceField<IActionModel>;
+    public Type: string;
 }
 
 /**
