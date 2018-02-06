@@ -42,9 +42,9 @@
   "dependencies": {},
   "devDependencies": {
     "rimraf": "^2.6.1",
-    "tslint": "^5.8.0",
-    "tslint-consistent-codestyle": "^1.11.0",
-    "typescript": "^2.6.1"
+    "tslint": "^5.9.1",
+    "tslint-consistent-codestyle": "^1.11.1",
+    "typescript": "^2.7.1"
   },
   "config": {
     "commitizen": {
