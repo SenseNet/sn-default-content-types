@@ -16,6 +16,7 @@
     "prebuild": "npm run lint && npm run clean",
     "build": "tsc",
     "typedoc": "typedoc --mode modules --tsconfig ./tsconfig.typedoc.json --out documentation --excludePrivate --theme default --readme readme.md ./src",
+    "prepublish": "npm run test && npm run build",
     "publish:development": "npm run build && npm t && npm run typedoc && npm publish --tag development"
   },
   "repository": {
