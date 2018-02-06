@@ -24,6 +24,7 @@ import {
     MaritalStatus, MemoType, Priority, QueryType,
     SavingState, Status, VersioningMode
 } from "./Enums";
+import { IActionModel } from "./index";
 
 export type ContentReferenceField<T> = DeferredObject | T | number;
 export type ContentListReferenceField<T> = DeferredObject | T[] | number[];
@@ -56,7 +57,7 @@ export class ContentType {
     public ModifiedBy?: ContentReferenceField<GenericContent>;
     public ModificationDate?: string;
     public EnableLifespan?: boolean;
-
+    public Actions?: ContentListReferenceField<IActionModel>;
 }
 
 /**
@@ -115,8 +116,8 @@ export class GenericContent {
     public RejectReason?: string;
     public Workspace?: ContentReferenceField<Workspace>;
     public BrowseUrl?: string;
-    public Type: string;
-
+    public Actions?: ContentListReferenceField<IActionModel>;
+    public Type!: string;
 }
 
 /**
@@ -135,7 +136,7 @@ export class ContentLink extends GenericContent {
  * @extends {@link GenericContent}
  */
 export class File extends GenericContent {
-    public Binary: BinaryField;
+    public Binary!: BinaryField;
     public Size?: number;
     public FullSize?: number;
     public PageCount?: number;

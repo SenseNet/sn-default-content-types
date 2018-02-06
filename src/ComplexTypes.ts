@@ -32,13 +32,6 @@ export class ChoiceOption {
     public Text?: string;
     public Enabled?: boolean;
     public Selected?: boolean;
-
-    constructor(value: string, text?: string, enabled?: boolean, selected?: boolean) {
-        this.Value = value;
-        this.Text = text;
-        this.Enabled = enabled;
-        this.Selected = selected;
-    }
 }
 
 export class DeferredUriObject {

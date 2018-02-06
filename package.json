@@ -1,6 +1,6 @@
 {
   "name": "@sensenet/default-content-types",
-  "version": "1.0.0-development.5",
+  "version": "1.0.0-development.6",
   "description": "Default content type definitions for sensenet ECM",
   "main": "dist/index.js",
   "files": [
@@ -16,6 +16,7 @@
     "prebuild": "npm run lint && npm run clean",
     "build": "tsc",
     "typedoc": "typedoc --mode modules --tsconfig ./tsconfig.typedoc.json --out documentation --excludePrivate --theme default --readme readme.md ./src",
+    "prepublish": "npm run test && npm run build",
     "publish:development": "npm run build && npm t && npm run typedoc && npm publish --tag development"
   },
   "repository": {
