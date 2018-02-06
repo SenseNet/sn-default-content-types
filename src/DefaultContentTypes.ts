@@ -36,14 +36,14 @@ export type BinaryField = MediaResourceObject;
  * @class ContentType
  */
 export class ContentType {
-    public Id: number;
+    public Id!: number;
     public ParentId?: number;
     public VersionId?: number;
-    public Name: string;
+    public Name!: string;
     public CreatedById?: number;
     public ModifiedById?: number;
     public Version?: string;
-    public Path: string;
+    public Path!: string;
     public Depth?: number;
     public IsSystemContent?: boolean;
     public HandlerName?: string;
@@ -65,17 +65,17 @@ export class ContentType {
  * @class GenericContent
  */
 export class GenericContent {
-    public Id: number;
+    public Id!: number;
     public ParentId?: number;
     public OwnerId?: number;
     public Owner?: ContentReferenceField<GenericContent>;
     public VersionId?: number;
     public Icon?: string;
-    public Name: string;
+    public Name!: string;
     public CreatedById?: number;
     public ModifiedById?: number;
     public Version?: string;
-    public Path: string;
+    public Path!: string;
     public Depth?: number;
     public IsSystemContent?: boolean;
     public IsFolder?: boolean;
