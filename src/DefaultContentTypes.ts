@@ -1,11 +1,7 @@
 /**
+ * The Content Repository contains many different types of *Content*. *Content* vary in structure and even in function.
  *
- * @module ContentTypes
- * @preferred
- *
- *
- * @description The Content Repository contains many different types of ```Content```. ```Content``` vary in structure and even in function. Different types of content contain different fields,
- * are displayed with different views, and may also implement different business logic. The fields, views and business logic of a content is defined by its type - the Content Type.
+ * Different types of content contain different fields, are displayed with different views, and may also implement different business logic. The fields, views and business logic of a content is defined by its type - the Content Type.
  *
  * Content Types are defined in a type hierarchy: a Content Type may be inherited from another Content Type - thus automatically inheriting its fields.
  *
