@@ -16,7 +16,7 @@
     "prebuild": "npm run lint && npm run clean",
     "build": "tsc",
     "typedoc": "typedoc --mode modules --out documentation src --tsconfig tsconfig.json --theme c:/Users/%USERNAME%/AppData/Roaming/npm/node_modules/@sensenet/typedoc-theme/sn-theme",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "publish:development": "npm run build && npm t && npm run typedoc && npm publish --tag development"
   },
   "repository": {
@@ -41,7 +41,7 @@
   "homepage": "https://sensenet.com",
   "dependencies": {},
   "devDependencies": {
-    "rimraf": "^2.6.1",
+    "rimraf": "^2.6.2",
     "tslint": "^5.9.1",
     "tslint-consistent-codestyle": "^1.11.1",
     "typescript": "^2.7.1"
