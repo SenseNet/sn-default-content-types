@@ -12,7 +12,7 @@
     "clean": "rimraf dist",
     "precommit": "npm run build",
     "commit": "git-cz",
-    "test": "nyc mocha -p tsconfig.json dist/test/index.js",
+    "test": "npm run build",
     "prebuild": "npm run lint && npm run clean",
     "build": "tsc",
     "typedoc": "typedoc --mode modules --out documentation src --tsconfig tsconfig.json --theme c:/Users/%USERNAME%/AppData/Roaming/npm/node_modules/@sensenet/typedoc-theme/sn-theme",
