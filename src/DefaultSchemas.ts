@@ -12,6 +12,10 @@
 
  import * as FieldSettings from "./FieldSettings";
 
+ /**
+  * Type guard to check if a provided object is a Schema
+  * @param { Schema } schema the object that has to be checked
+  */
  export const isSchema: (schema: Schema) => boolean = (schema: Schema): schema is Schema => {
     return schema && schema.ContentTypeName && schema.FieldSettings && schema.FieldSettings instanceof Array || false;
 };
@@ -34,6 +38,9 @@
      public FieldSettings!: FieldSettings.FieldSetting[];
  }
 
+ /**
+  * @description Store for default schemas
+  */
  export const SchemaStore: Schema[] = [
      {
          ContentTypeName: "ContentType",
