@@ -15,7 +15,12 @@ import { ChoiceOption } from "./ComplexTypes";
 /**
  * Enum for Field visibility values.
  */
-export enum FieldVisibility { Show, Hide, Advanced }
+export enum FieldVisibility { 
+    Show = "FieldVisibility.Show",
+    Hide = "FieldVisibility.Hide",
+    Advanced = "FieldVisibility.Advanced"
+}
+
 /**
  * Enum for Field output method values.
  */
