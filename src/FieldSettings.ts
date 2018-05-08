@@ -1,6 +1,8 @@
 /**
+ * @module FieldSettings
+ * @preferred
  *
- * Module for FieldSettings.
+ * @description Module for FieldSettings.
  *
  * FieldSetting object is the implementation of the configuration element in a Sense/Net Content Type Definition.
  * The FieldSetting of a Field contains properties that define the behavior of the Field - for example a Field can be configured as read only or compulsory to fill.
@@ -8,9 +10,9 @@
  * client-side e.g. for validation.
  *
  * This module also contains some FieldSetting related enums to use them as types in properties e.g. visibitily or datetime mode options.
- */ /** */
+ */
 
-import { ChoiceOption } from "./ComplexTypes";
+import * as ComplexTypes from "./ComplexTypes";
 
 /**
  * Enum for Field visibility values.
@@ -64,7 +66,6 @@ export class FieldSetting {
     public FieldIndex?: number;
     public DefaultOrder?: number;
     public ControlHint?: string;
-
 }
 
 // Used in ContentType, GenericContent, File, Image, TrashBag, TrashBin, Task
@@ -73,21 +74,25 @@ export class IntegerFieldSetting extends FieldSetting {
     public MaxValue?: number;
     public ShowAsPercentage?: boolean;
     public Step?: number;
+
 }
 
 //
 export class TextFieldSetting extends FieldSetting {
     public MinLength?: number;
     public MaxLength?: number;
+
 }
 
 // Used in ContentType, GenericContent, File, ContentList, Device, Domain, Email, OrganizationalUnit, TrashBag, Group, Task, User
 export class ShortTextFieldSetting extends TextFieldSetting {
     public Regex?: string;
+
 }
 
 // Used in ContentType, GenericContent, Settings, IndexingSettings, ContentList, Workspace, Site, CustomListItem, User
 export class NullFieldSetting extends FieldSetting {
+
 }
 
 // Used in ContentType, GenericContent, File, HtmlTemplate, Image, ContentList, Aspect, Email, SmartFolder, Query, User
@@ -95,11 +100,13 @@ export class LongTextFieldSetting extends TextFieldSetting {
     public Rows?: number;
     public TextType?: TextType;
     public AppendModifications?: boolean;
+
 }
 
 // Used in ContentType, File, User
 export class BinaryFieldSetting extends FieldSetting {
     public IsText?: boolean;
+
 }
 
 // Used in ContentType, GenericContent, ContentLink, ContentList, ImageLibrary, TrashBag, Workspace, Site, UserProfile, Group, Memo, Task, User
@@ -107,7 +114,7 @@ export class ReferenceFieldSetting extends FieldSetting {
     public AllowMultiple?: boolean;
     public AllowedTypes?: string[];
     public SelectionRoots?: string[];
-    public Query?: string;
+    public Query?: string /* original: ContentQuery */;
     public FieldName?: string;
 
 }
@@ -116,13 +123,14 @@ export class ReferenceFieldSetting extends FieldSetting {
 export class DateTimeFieldSetting extends FieldSetting {
     public DateTimeMode?: DateTimeMode;
     public Precision?: DateTimePrecision;
+
 }
 
 // Used in GenericContent, ContentList, SmartFolder, Site, Memo, Task, Query, User
 export class ChoiceFieldSetting extends ShortTextFieldSetting {
     public AllowExtraValue?: boolean;
     public AllowMultiple?: boolean;
-    public Options?: ChoiceOption[];
+    public Options?: ComplexTypes.ChoiceOption[];
     public DisplayChoice?: DisplayChoice;
     public EnumTypeName?: string;
 
