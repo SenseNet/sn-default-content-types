@@ -20,15 +20,15 @@ import * as FieldSettings from "./FieldSettings";
  * It represents an object that holds the basic information about the Content Type (name, icon, ect.) and an array of its ```FieldSettings``` and their full configuration.
  */
 export class Schema {
-     public ContentTypeName!: string;
-     public ParentTypeName?: string;
-     public Icon!: string;
-     public DisplayName!: string;
-     public Description!: string;
-     public AllowIndexing!: boolean;
-     public AllowIncrementalNaming!: boolean;
-     public AllowedChildTypes!: string[];
-     public FieldSettings!: FieldSettings.FieldSetting[];
+    public ContentTypeName!: string;
+    public ParentTypeName?: string;
+    public Icon!: string;
+    public DisplayName!: string;
+    public Description!: string;
+    public AllowIndexing!: boolean;
+    public AllowIncrementalNaming!: boolean;
+    public AllowedChildTypes!: string[];
+    public FieldSettings!: FieldSettings.FieldSetting[];
 }
 
 export const SchemaStore: Schema[] = [
@@ -45,9 +45,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "Id",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Id",
                 Description: "A unique ID for the Content.",
-                FieldDataType: "Int32",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -59,9 +59,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "ParentId",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Id",
                 Description: "A unique ID for the Content.",
-                FieldDataType: "Int32",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -73,7 +73,7 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "VersionId",
-                FieldDataType: "Int32",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -85,8 +85,8 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "Name",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Uri name",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: true,
                 Visible: true,
@@ -98,7 +98,7 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "CreatedById",
-                FieldDataType: "Int32",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -110,7 +110,7 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "ModifiedById",
-                FieldDataType: "Int32",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -122,9 +122,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "Version",
+                FieldClassName: "SenseNet.ContentRepository.Fields.VersionField",
                 DisplayName: "Version",
                 Description: "Latest version number.",
-                FieldDataType: "VersionNumber",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: true,
@@ -136,9 +136,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "Path",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Path",
                 Description: "Content type path.",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: true,
@@ -150,7 +150,7 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "Depth",
-                FieldDataType: "Int32",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -162,9 +162,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "IsSystemContent",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "System Content",
                 Description: "This field is true if content is in a system folder/trash or the content is a system folder/file.",
-                FieldDataType: "Boolean",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -176,9 +176,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "HandlerName",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Handler Name",
                 Description: "Fully Qualified Name.",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: true,
@@ -190,9 +190,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "ParentTypeName",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Parent Type Name",
                 Description: "Name of the parent content type.",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: true,
@@ -204,9 +204,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "DisplayName",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Name",
                 Description: "User friendly name of the content type.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -218,9 +218,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "LongTextFieldSetting",
                 Name: "Description",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "Description",
                 Description: "Longer description of the content type.",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: true,
@@ -232,9 +232,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "Icon",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Icon",
                 Description: "Content type icon.",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: true,
@@ -247,9 +247,9 @@ export const SchemaStore: Schema[] = [
                 Type: "BinaryFieldSetting",
                 IsText: true,
                 Name: "Binary",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BinaryField",
                 DisplayName: "Binary",
                 Description: "The content type definition in XML format.",
-                FieldDataType: "BinaryData",
                 ReadOnly: false,
                 Compulsory: false,
                 DefaultValue: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\<ContentType name=\"MyType\" parentType=\"GenericContent\" handler=\"SenseNet.ContentRepository.GenericContent\" xmlns=\"http://schemas.sensenet.com/SenseNet/ContentRepository/ContentTypeDefinition\">\  <DisplayName>MyType</DisplayName>\  <Description></Description>\  <Icon>Content</Icon>\  <AllowIncrementalNaming>true</AllowIncrementalNaming>\  <AllowedChildTypes>ContentTypeName1,ContentTypeName2</AllowedChildTypes>\  <Fields>\    <Field name=\"ShortTextField\" type=\"ShortText\">\      <DisplayName>ShortTextField</DisplayName>\      <Description></Description>\      <Configuration>\        <MaxLength>100</MaxLength>\        <MinLength>0</MinLength>\        <Regex>[a-zA-Z0-9]*$</Regex>\        <ReadOnly>false</ReadOnly>\        <Compulsory>false</Compulsory>\        <DefaultValue></DefaultValue>\        <VisibleBrowse>Show|Hide|Advanced</VisibleBrowse>\        <VisibleEdit>Show|Hide|Advanced</VisibleEdit>\        <VisibleNew>Show|Hide|Advanced</VisibleNew>\      </Configuration>\    </Field>\    <Field name=\"LongTextField\" type=\"LongText\">\      <DisplayName>LongTextField</DisplayName>\      <Description></Description>\      <Configuration>\        <MaxLength>100</MaxLength>\        <MinLength>0</MinLength>\        <TextType>LongText|RichText|AdvancedRichText</TextType>\        <ReadOnly>false</ReadOnly>\        <Compulsory>false</Compulsory>\        <DefaultValue></DefaultValue>\        <VisibleBrowse>Show|Hide|Advanced</VisibleBrowse>\        <VisibleEdit>Show|Hide|Advanced</VisibleEdit>\        <VisibleNew>Show|Hide|Advanced</VisibleNew>\      </Configuration>\    </Field>\    <Field name=\"NumberField\" type=\"Number\">\      <DisplayName>NumberField</DisplayName>\      <Description></Description>\      <Configuration>\        <MinValue>0</MinValue>\        <MaxValue>100.5</MaxValue>\        <Digits>2</Digits>\        <ReadOnly>false</ReadOnly>\        <Compulsory>false</Compulsory>\        <DefaultValue></DefaultValue>\        <VisibleBrowse>Show|Hide|Advanced</VisibleBrowse>\        <VisibleEdit>Show|Hide|Advanced</VisibleEdit>\        <VisibleNew>Show|Hide|Advanced</VisibleNew>\      </Configuration>\    </Field>\    <Field name=\"IntegerField\" type=\"Integer\">\      <DisplayName>IntegerField</DisplayName>\      <Description></Description>\      <Configuration>\        <MinValue>0</MinValue>\        <MaxValue>100</MaxValue>\        <ReadOnly>false</ReadOnly>\        <Compulsory>false</Compulsory>\        <DefaultValue></DefaultValue>\        <VisibleBrowse>Show|Hide|Advanced</VisibleBrowse>\        <VisibleEdit>Show|Hide|Advanced</VisibleEdit>\        <VisibleNew>Show|Hide|Advanced</VisibleNew>\      </Configuration>\    </Field>\    <Field name=\"BooleanField\" type=\"Boolean\">\      <DisplayName>BooleanField</DisplayName>\      <Description></Description>\      <Configuration>\        <ReadOnly>false</ReadOnly>\        <Compulsory>false</Compulsory>\        <DefaultValue></DefaultValue>\        <VisibleBrowse>Show|Hide|Advanced</VisibleBrowse>\        <VisibleEdit>Show|Hide|Advanced</VisibleEdit>\        <VisibleNew>Show|Hide|Advanced</VisibleNew>\      </Configuration>\    </Field>\    <Field name=\"ChoiceField\" type=\"Choice\">\      <DisplayName>ChoiceField</DisplayName>\      <Description></Description>\      <Configuration>\        <AllowMultiple>false</AllowMultiple>\        <AllowExtraValue>false</AllowExtraValue>\        <Options>\          <Option selected=\"true\">1</Option>\          <Option>2</Option>\        </Options>\        <ReadOnly>false</ReadOnly>\        <Compulsory>false</Compulsory>\        <DefaultValue></DefaultValue>\        <VisibleBrowse>Show|Hide|Advanced</VisibleBrowse>\        <VisibleEdit>Show|Hide|Advanced</VisibleEdit>\        <VisibleNew>Show|Hide|Advanced</VisibleNew>\      </Configuration>\    </Field>\    <Field name=\"DateTimeField\" type=\"DateTime\">\      <DisplayName>DateTimeField</DisplayName>\      <Description></Description>\      <Configuration>\        <DateTimeMode>DateAndTime</DateTimeMode>\        <Precision>Second</Precision>\        <ReadOnly>false</ReadOnly>\        <Compulsory>false</Compulsory>\        <DefaultValue></DefaultValue>\        <VisibleBrowse>Show|Hide|Advanced</VisibleBrowse>\        <VisibleEdit>Show|Hide|Advanced</VisibleEdit>\        <VisibleNew>Show|Hide|Advanced</VisibleNew>\      </Configuration>\    </Field>\    <Field name=\"ReferenceField\" type=\"Reference\">\      <DisplayName>ReferenceField</DisplayName>\      <Description></Description>\      <Configuration>\        <AllowMultiple>true</AllowMultiple>\        <AllowedTypes>\          <Type>Type1</Type>\          <Type>Type2</Type>\        </AllowedTypes>\        <SelectionRoot>\          <Path>/Root/Path1</Path>\          <Path>/Root/Path2</Path>\        </SelectionRoot>\        <DefaultValue>/Root/Path1,/Root/Path2</DefaultValue>\        <ReadOnly>false</ReadOnly>\        <Compulsory>false</Compulsory>\        <VisibleBrowse>Show|Hide|Advanced</VisibleBrowse>\        <VisibleEdit>Show|Hide|Advanced</VisibleEdit>\        <VisibleNew>Show|Hide|Advanced</VisibleNew>\      </Configuration>\    </Field>\    <Field name=\"BinaryField\" type=\"Binary\">\      <DisplayName>BinaryField</DisplayName>\      <Description></Description>\      <Configuration>\        <IsText>true</IsText>\        <ReadOnly>false</ReadOnly>\        <Compulsory>false</Compulsory>\        <DefaultValue></DefaultValue>\        <VisibleBrowse>Show|Hide|Advanced</VisibleBrowse>\        <VisibleEdit>Show|Hide|Advanced</VisibleEdit>\        <VisibleNew>Show|Hide|Advanced</VisibleNew>\      </Configuration>\    </Field>\  </Fields>\</ContentType>",
@@ -262,9 +262,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ReferenceFieldSetting",
                 Name: "CreatedBy",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Created by",
                 Description: "Content creator.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -277,9 +277,9 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "CreationDate",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Creation date",
                 Description: "Content creation date.",
-                FieldDataType: "DateTime",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -291,9 +291,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ReferenceFieldSetting",
                 Name: "ModifiedBy",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Modified by",
                 Description: "Content was last modified by the given user.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -305,9 +305,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "DateTimeFieldSetting",
                 Name: "ModificationDate",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Modification date",
                 Description: "Content was last modified on the given date.",
-                FieldDataType: "DateTime",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -319,8 +319,8 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "EnableLifespan",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Enable Lifespan handling",
-                FieldDataType: "Boolean",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -330,7 +330,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.NullFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "GenericContent",
         DisplayName: "$Ctd-GenericContent,DisplayName",
@@ -343,9 +343,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "Id",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Id",
                 Description: "Unique Id for the content.",
-                FieldDataType: "Int32",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -357,9 +357,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "ParentId",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Parent Id",
                 Description: "Id of the parent content.",
-                FieldDataType: "Int32",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -371,9 +371,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "OwnerId",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Owner Id",
                 Description: "Id of the owner.",
-                FieldDataType: "Int32",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -385,9 +385,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ReferenceFieldSetting",
                 Name: "Owner",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Owner",
                 Description: "Content owner.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -399,9 +399,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "VersionId",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Version Id",
                 Description: "Database row Id of current version.",
-                FieldDataType: "Int32",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -413,9 +413,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "Icon",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Icon",
                 Description: "Icon",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -427,9 +427,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "Name",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Name",
                 Description: "Specify a name that will appear in the address bar of the browser.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: true,
                 Visible: true,
@@ -442,9 +442,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "CreatedById",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Created By (Id)",
                 Description: "Id of creator.",
-                FieldDataType: "Int32",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -456,9 +456,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "ModifiedById",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Last Modified By (Id)",
                 Description: "Id of last modifier.",
-                FieldDataType: "Int32",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -470,9 +470,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "Version",
+                FieldClassName: "SenseNet.ContentRepository.Fields.VersionField",
                 DisplayName: "Version",
                 Description: "Version number.",
-                FieldDataType: "VersionNumber",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -484,9 +484,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "Path",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Path",
                 Description: "Content path in the repository.",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -498,9 +498,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "Depth",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Tree Depth",
                 Description: "Content level in the tree. Root level is 0.",
-                FieldDataType: "Int32",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -512,9 +512,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "IsSystemContent",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "System Content",
                 Description: "This field is true if content is in a system folder/trash or the content is a system folder/file.",
-                FieldDataType: "Boolean",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -526,9 +526,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "IsFolder",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Folder",
                 Description: "This field is true if content can contain other content.",
-                FieldDataType: "Boolean",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -540,9 +540,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "DisplayName",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Display Name",
                 Description: "Content name. You can set any name you prefer without any restrictions.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -555,9 +555,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "LongTextFieldSetting",
                 Name: "Description",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "Description",
                 Description: "Description of the content.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -570,9 +570,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "Hidden",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Hidden",
                 Description: "If checked, content will not show up in navigation.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -584,9 +584,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "Index",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Index",
                 Description: "Content order in navigation. Numbers closer to 0 will appear first.",
-                FieldDataType: "Int32",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -598,9 +598,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "EnableLifespan",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Enable Lifespan",
                 Description: "Specify whether you want to define starting and end date for the validity of this content.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -613,9 +613,9 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "ValidFrom",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Valid From",
                 Description: "This content will appear on the date you set if lifespan handling is enabled for this content.",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -628,9 +628,9 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "ValidTill",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Valid Till",
                 Description: "This content will disappear on the date you set if lifespan handling is enabled for this content.",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -642,9 +642,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "AllowedChildTypes",
+                FieldClassName: "SenseNet.ContentRepository.Fields.AllowedChildTypesField",
                 DisplayName: "Allowed child types",
                 Description: "You can get and set which content types are explicitly allowed to be created under this content. It is a local setting.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -656,9 +656,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "EffectiveAllowedChildTypes",
+                FieldClassName: "SenseNet.ContentRepository.Fields.AllowedChildTypesField",
                 DisplayName: "Effective allowed child types",
                 Description: "You can get which content types are effective allowed to be created under this content. If there is no local setting, the global setting takes effect.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -672,17 +672,17 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: false,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "0", Text: "Inherited", Enabled: true, Selected: true },
-                    {Value: "1", Text: "None", Enabled: true, Selected: false },
-                    {Value: "2", Text: "Major only", Enabled: true, Selected: false },
-                    {Value: "3", Text: "Major and minor", Enabled: true, Selected: false }
+                    { Value: "0", Text: "Inherited", Enabled: true, Selected: true },
+                    { Value: "1", Text: "None", Enabled: true, Selected: false },
+                    { Value: "2", Text: "Major only", Enabled: true, Selected: false },
+                    { Value: "3", Text: "Major and minor", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.DropDown,
                 EnumTypeName: "",
                 Name: "VersioningMode",
+                FieldClassName: "SenseNet.ContentRepository.Fields.VersioningModeField",
                 DisplayName: "Versioning Mode For Current Content",
                 Description: "It shows the versioning mode of the current content.",
-                FieldDataType: "VersioningType",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -696,17 +696,17 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: false,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "0", Text: "Inherited", Enabled: true, Selected: true },
-                    {Value: "1", Text: "None", Enabled: true, Selected: false },
-                    {Value: "2", Text: "Major only", Enabled: true, Selected: false },
-                    {Value: "3", Text: "Major and minor", Enabled: true, Selected: false }
+                    { Value: "0", Text: "Inherited", Enabled: true, Selected: true },
+                    { Value: "1", Text: "None", Enabled: true, Selected: false },
+                    { Value: "2", Text: "Major only", Enabled: true, Selected: false },
+                    { Value: "3", Text: "Major and minor", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.DropDown,
                 EnumTypeName: "",
                 Name: "InheritableVersioningMode",
+                FieldClassName: "SenseNet.ContentRepository.Fields.InheritableVersioningModeField",
                 DisplayName: "Version history",
                 Description: "Specify whether the system should create a new version whenever you create or modify a content below this content.",
-                FieldDataType: "InheritableVersioningType",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -719,9 +719,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ReferenceFieldSetting",
                 Name: "CreatedBy",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Created by",
                 Description: "Content creator.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -734,9 +734,9 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "CreationDate",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Creation date",
                 Description: "Content creation date.",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -748,9 +748,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ReferenceFieldSetting",
                 Name: "ModifiedBy",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Modified By",
                 Description: "Content was last modified by this user.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -763,9 +763,9 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "ModificationDate",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Modification Date",
                 Description: "Content was last modified on this date.",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -779,16 +779,16 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: false,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "0", Text: "Inherited", Enabled: true, Selected: true },
-                    {Value: "1", Text: "Off", Enabled: true, Selected: false },
-                    {Value: "2", Text: "On", Enabled: true, Selected: false }
+                    { Value: "0", Text: "Inherited", Enabled: true, Selected: true },
+                    { Value: "1", Text: "Off", Enabled: true, Selected: false },
+                    { Value: "2", Text: "On", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.DropDown,
                 EnumTypeName: "",
                 Name: "ApprovingMode",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ApprovingModeField",
                 DisplayName: "Content Approval For Current Content",
                 Description: "It shows the approval mode of the current content.",
-                FieldDataType: "ApprovingType",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -802,16 +802,16 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: false,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "0", Text: "Inherited", Enabled: true, Selected: true },
-                    {Value: "1", Text: "Off", Enabled: true, Selected: false },
-                    {Value: "2", Text: "On", Enabled: true, Selected: false }
+                    { Value: "0", Text: "Inherited", Enabled: true, Selected: true },
+                    { Value: "1", Text: "Off", Enabled: true, Selected: false },
+                    { Value: "2", Text: "On", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.DropDown,
                 EnumTypeName: "",
                 Name: "InheritableApprovingMode",
+                FieldClassName: "SenseNet.ContentRepository.Fields.InheritableApprovingModeField",
                 DisplayName: "Content approval",
                 Description: "Specify whether new or changed content below the current one should remain in a draft state until they have been approved.",
-                FieldDataType: "ApprovingType",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -824,9 +824,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "Locked",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Locked",
                 Description: "It shows whether the content is checked out or not.",
-                FieldDataType: "Boolean",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -838,9 +838,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ReferenceFieldSetting",
                 Name: "CheckedOutTo",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Checked Out To",
                 Description: "The user currently locking the content.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -852,9 +852,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "TrashDisabled",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Disable Trash",
                 Description: "You can disable trash for this content and its children. If set, you can not restore deleted content.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: false,
                 DefaultValue: "false",
@@ -869,17 +869,17 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: false,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "0", Text: "Finalized", Enabled: true, Selected: false },
-                    {Value: "1", Text: "Creating", Enabled: true, Selected: false },
-                    {Value: "2", Text: "Modifying", Enabled: true, Selected: false },
-                    {Value: "3", Text: "ModifyingLocked", Enabled: true, Selected: false }
+                    { Value: "0", Text: "Finalized", Enabled: true, Selected: false },
+                    { Value: "1", Text: "Creating", Enabled: true, Selected: false },
+                    { Value: "2", Text: "Modifying", Enabled: true, Selected: false },
+                    { Value: "3", Text: "ModifyingLocked", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.DropDown,
                 EnumTypeName: "SenseNet.ContentRepository.Storage.ContentSavingState",
                 Name: "SavingState",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ChoiceField",
                 DisplayName: "Saving state",
                 Description: "State of multi-step saving.",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -891,9 +891,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "LongTextFieldSetting",
                 Name: "ExtensionData",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "Extension data",
                 Description: "You can set extra data in this field which is useful when extending a content.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -906,9 +906,9 @@ export const SchemaStore: Schema[] = [
                 Type: "ReferenceFieldSetting",
                 AllowMultiple: false,
                 Name: "BrowseApplication",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Reference To Browse Application",
                 Description: "Set this, if you would like to override the default browse application.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -920,9 +920,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "Approvable",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Approvable By Current User",
                 Description: "This fileld is true if the content is in 'pending' state and can be approved by the current user.",
-                FieldDataType: "Boolean",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -934,9 +934,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "IsTaggable",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Enable Tagging",
                 Description: "Specify whether you would like to enable tagging capability for this content.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: false,
                 DefaultValue: "false",
@@ -949,9 +949,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "LongTextFieldSetting",
                 Name: "Tags",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "Tags",
                 Description: "List of tags and creators of them separated by commas.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -964,9 +964,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "IsRateable",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Enable Rating",
                 Description: "Specify whether you would like to enable rating capability for this content.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: false,
                 DefaultValue: "false",
@@ -979,9 +979,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "RateStr",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Raw value of rating",
                 Description: "",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -993,9 +993,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NumberFieldSetting",
                 Name: "RateAvg",
+                FieldClassName: "SenseNet.ContentRepository.Fields.NumberField",
                 DisplayName: "Average rate",
                 Description: "Average rate of the content.",
-                FieldDataType: "Decimal",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1007,9 +1007,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "RateCount",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Rate count",
                 Description: "Count of rates.",
-                FieldDataType: "Int32",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1023,9 +1023,9 @@ export const SchemaStore: Schema[] = [
                 Range: 5,
                 Split: 1,
                 Name: "Rate",
+                FieldClassName: "SenseNet.ContentRepository.Fields.RatingField",
                 DisplayName: "Rate",
                 Description: "",
-                FieldDataType: "VoteData",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1037,9 +1037,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "Publishable",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Publishable By Current User",
                 Description: "This fileld is true if the content can be published by the current user.",
-                FieldDataType: "Boolean",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -1052,9 +1052,9 @@ export const SchemaStore: Schema[] = [
                 Type: "ReferenceFieldSetting",
                 AllowMultiple: true,
                 Name: "Versions",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Versions",
                 Description: "Content version history.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -1066,9 +1066,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "LongTextFieldSetting",
                 Name: "CheckInComments",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "Checkin comments",
                 Description: "Comments for a new version.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1080,9 +1080,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "LongTextFieldSetting",
                 Name: "RejectReason",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "Reject reason",
                 Description: "The reason why the content was rejected.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1096,9 +1096,9 @@ export const SchemaStore: Schema[] = [
                 AllowMultiple: false,
                 AllowedTypes: ["Workspace"],
                 Name: "Workspace",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Workspace",
                 Description: "The container workspace of the content.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -1110,9 +1110,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "BrowseUrl",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Browse url",
                 Description: "",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -1122,7 +1122,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.ShortTextFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "ContentLink",
         ParentTypeName: "GenericContent",
@@ -1137,9 +1137,9 @@ export const SchemaStore: Schema[] = [
                 Type: "ReferenceFieldSetting",
                 AllowMultiple: false,
                 Name: "Link",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Linked content",
                 Description: "Set this reference to the Content to link.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -1149,7 +1149,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.ReferenceFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "File",
         ParentTypeName: "GenericContent",
@@ -1163,9 +1163,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "BinaryFieldSetting",
                 Name: "Binary",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BinaryField",
                 DisplayName: "Binary",
                 Description: "The binary content of the document.",
-                FieldDataType: "BinaryData",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1177,9 +1177,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NumberFieldSetting",
                 Name: "Size",
+                FieldClassName: "SenseNet.ContentRepository.Fields.NumberField",
                 DisplayName: "Size",
                 Description: "Size of the binary document.",
-                FieldDataType: "Decimal",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -1191,9 +1191,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NumberFieldSetting",
                 Name: "FullSize",
+                FieldClassName: "SenseNet.ContentRepository.Fields.NumberField",
                 DisplayName: "Full size",
                 Description: "The total amount of space the Document occupies, counting all versions.",
-                FieldDataType: "Decimal",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -1205,9 +1205,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "PageCount",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Page count",
                 Description: "Read-only field for storing the number of pages in the document. It is filled by the document preview generator.",
-                FieldDataType: "Int32",
                 ReadOnly: false,
                 Compulsory: false,
                 DefaultValue: "-4",
@@ -1220,8 +1220,8 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "MimeType",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Document MIME type",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -1233,9 +1233,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "LongTextFieldSetting",
                 Name: "Shapes",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "Shapes",
                 Description: "Stores data used for document preview (redaction, highlight, annotation shapes). This value can be modified by the document preview plugin.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1247,9 +1247,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "LongTextFieldSetting",
                 Name: "PageAttributes",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "Page attributes",
                 Description: "Stores data used for document preview (for example page rotation). This value can be modified by the document preview plugin.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1261,9 +1261,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "Watermark",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Watermark",
                 Description: "The text that is displayed as a watermark on the document preview. The format can be set by modifying the Document Preview settings.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1273,7 +1273,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.ShortTextFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "DynamicJsonContent",
         ParentTypeName: "File",
@@ -1285,7 +1285,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: [],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "ExecutableFile",
         ParentTypeName: "File",
@@ -1297,7 +1297,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: [],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "HtmlTemplate",
         ParentTypeName: "File",
@@ -1311,9 +1311,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "LongTextFieldSetting",
                 Name: "TemplateText",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "Template text",
                 Description: "Shows the contents of the html file as a text.",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -1323,7 +1323,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.LongTextFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "Image",
         ParentTypeName: "File",
@@ -1337,9 +1337,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "LongTextFieldSetting",
                 Name: "Keywords",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "Keywords",
                 Description: "Keywords describing the image.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -1352,9 +1352,9 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "DateTaken",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Date taken",
                 Description: "Date the photo was taken, if applicable.",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -1366,8 +1366,8 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "Width",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Width",
-                FieldDataType: "Int32",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: true,
@@ -1379,8 +1379,8 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "Height",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Height",
-                FieldDataType: "Int32",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: true,
@@ -1390,7 +1390,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.IntegerFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "PreviewImage",
         ParentTypeName: "Image",
@@ -1402,7 +1402,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: [],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "Settings",
         ParentTypeName: "File",
@@ -1416,9 +1416,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "GlobalOnly",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Global only",
                 Description: "Switching this ON will prevent the creation of local settings with the same name preventing others to gain access to the contents of this settings file through inheritance.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -1428,7 +1428,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.NullFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "IndexingSettings",
         ParentTypeName: "Settings",
@@ -1442,9 +1442,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "TextExtractorInstances",
+                FieldClassName: "SenseNet.Search.TextExtractorsField",
                 DisplayName: "Text extractor instances",
                 Description: "Dynamically generated text extractor instance collection.",
-                FieldDataType: "ReadOnlyDictionary`2",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -1454,7 +1454,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.NullFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "LoggingSettings",
         ParentTypeName: "Settings",
@@ -1466,7 +1466,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: [],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "PortalSettings",
         ParentTypeName: "Settings",
@@ -1478,7 +1478,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: [],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "SystemFile",
         ParentTypeName: "File",
@@ -1490,7 +1490,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: [],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "Resource",
         ParentTypeName: "SystemFile",
@@ -1504,9 +1504,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NumberFieldSetting",
                 Name: "Downloads",
+                FieldClassName: "SenseNet.ContentRepository.Fields.NumberField",
                 DisplayName: "Downloads",
                 Description: "The number of downloads.",
-                FieldDataType: "Decimal",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -1516,7 +1516,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.NumberFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "Folder",
         ParentTypeName: "GenericContent",
@@ -1528,7 +1528,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: [],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "ContentList",
         ParentTypeName: "Folder",
@@ -1542,9 +1542,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "LongTextFieldSetting",
                 Name: "ContentListDefinition",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "List Definition",
                 Description: "XML definition for additional fields.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1556,9 +1556,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "DefaultView",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Default view",
                 Description: "The default View to use.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1572,9 +1572,9 @@ export const SchemaStore: Schema[] = [
                 AllowMultiple: true,
                 AllowedTypes: [],
                 Name: "AvailableViews",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Available views",
                 Description: "Select global content list views here that you want to offer users to choose from.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1588,8 +1588,8 @@ export const SchemaStore: Schema[] = [
                 AllowMultiple: true,
                 AllowedTypes: [],
                 Name: "FieldSettingContents",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "FieldSetting content",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -1603,8 +1603,8 @@ export const SchemaStore: Schema[] = [
                 AllowMultiple: true,
                 AllowedTypes: [],
                 Name: "AvailableContentTypeFields",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Available ContentType Field content.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -1616,9 +1616,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "ListEmail",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Email address of Content List",
                 Description: "Emails sent to this address will be imported as Email content into the Document Library.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1630,9 +1630,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "ExchangeSubscriptionId",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Exchange Subscription Id",
                 Description: "Ctd-ContentListen-USExchangeSubscriptionId-Descriptione",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -1644,9 +1644,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "OverwriteFiles",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Overwrite files with same name",
                 Description: "If checked new emails and attachments with the same name will overwrite existing items in list. Otherwise increment suffix is used in the name of new mail items.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1660,17 +1660,17 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: false,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "email", Text: "Save all attachments as children of separate Email content", Enabled: true, Selected: true },
-                    {Value: "root", Text: "Save all attachments in root", Enabled: true, Selected: false },
-                    {Value: "subject", Text: "Save all attachments in folders grouped by subject", Enabled: true, Selected: false },
-                    {Value: "sender", Text: "Save all attachments in folders grouped by sender", Enabled: true, Selected: false }
+                    { Value: "email", Text: "Save all attachments as children of separate Email content", Enabled: true, Selected: true },
+                    { Value: "root", Text: "Save all attachments in root", Enabled: true, Selected: false },
+                    { Value: "subject", Text: "Save all attachments in folders grouped by subject", Enabled: true, Selected: false },
+                    { Value: "sender", Text: "Save all attachments in folders grouped by sender", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.DropDown,
                 EnumTypeName: "",
                 Name: "GroupAttachments",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ChoiceField",
                 DisplayName: "Group attachments",
                 Description: "Select the appropriate option to group attachment files under folders or email content or not.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1682,9 +1682,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "SaveOriginalEmail",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Save original email",
                 Description: "A separate .eml file will be created for every incoming email.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1698,9 +1698,9 @@ export const SchemaStore: Schema[] = [
                 AllowMultiple: false,
                 SelectionRoots: ["/Root/System/Schema/ContentTypes/GenericContent/Workflow/MailProcessorWorkflow"],
                 Name: "IncomingEmailWorkflow",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Incoming email workflow",
                 Description: "Select the workflow to be executed on every incoming email.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 DefaultValue: "/Root/System/Schema/ContentTypes/GenericContent/Workflow/MailProcessorWorkflow",
@@ -1713,9 +1713,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "OnlyFromLocalGroups",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Accept e-mails only from users in local groups",
                 Description: "If set, only users that are members of any local group are able to send e-mails to this library.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1727,9 +1727,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "InboxFolder",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Inbox folder",
                 Description: "A relative path of a folder to store incoming e-mails.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1744,9 +1744,9 @@ export const SchemaStore: Schema[] = [
                 AllowedTypes: ["User"],
                 SelectionRoots: ["/Root/IMS"],
                 Name: "OwnerWhenVisitor",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Owner of items created by visitor",
                 Description: "If a Visitor adds content to this list, this user will be set as the creator instead of the Visitor. This prevents visitors see each others' content.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 DefaultValue: "/Root/IMS/BuiltIn/Portal/Admin",
@@ -1757,7 +1757,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.ReferenceFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "Aspect",
         ParentTypeName: "ContentList",
@@ -1771,9 +1771,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "LongTextFieldSetting",
                 Name: "AspectDefinition",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "Aspect definition",
                 Description: "Definition of the extension in XML format.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -1783,7 +1783,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.LongTextFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "ItemList",
         ParentTypeName: "ContentList",
@@ -1795,7 +1795,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: [],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "CustomList",
         ParentTypeName: "ItemList",
@@ -1807,7 +1807,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: ["ListItem"],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "MemoList",
         ParentTypeName: "ItemList",
@@ -1819,7 +1819,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: ["Memo"],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "TaskList",
         ParentTypeName: "ItemList",
@@ -1831,7 +1831,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: ["Task"],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "Library",
         ParentTypeName: "ContentList",
@@ -1843,7 +1843,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: [],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "DocumentLibrary",
         ParentTypeName: "Library",
@@ -1855,7 +1855,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: ["Folder", "File"],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "ImageLibrary",
         ParentTypeName: "Library",
@@ -1871,9 +1871,9 @@ export const SchemaStore: Schema[] = [
                 AllowMultiple: false,
                 AllowedTypes: ["Image"],
                 Name: "CoverImage",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Cover image",
                 Description: "Select cover image",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -1883,7 +1883,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.ReferenceFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "Device",
         ParentTypeName: "Folder",
@@ -1897,9 +1897,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "UserAgentPattern",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "User agent string",
                 Description: "A regular expression to match the user agent string of the browser.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -1909,7 +1909,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.ShortTextFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "Domain",
         ParentTypeName: "Folder",
@@ -1923,9 +1923,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "SyncGuid",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "SyncGuid",
                 Description: "GUID of corresponding AD object.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1938,9 +1938,9 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "LastSync",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "LastSync",
                 Description: "Date of last synchronization.",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -1950,7 +1950,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.DateTimeFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "Domains",
         ParentTypeName: "Folder",
@@ -1962,7 +1962,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: ["Domain"],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "Email",
         ParentTypeName: "Folder",
@@ -1976,9 +1976,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "From",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "From",
                 Description: "Sender name and address.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -1991,9 +1991,9 @@ export const SchemaStore: Schema[] = [
                 Type: "LongTextFieldSetting",
                 TextType: FieldSettings.TextType.RichText,
                 Name: "Body",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "Body",
                 Description: "Body of email.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2007,9 +2007,9 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "Sent",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Sent",
                 Description: "Date of sending.",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2019,7 +2019,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.DateTimeFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "OrganizationalUnit",
         ParentTypeName: "Folder",
@@ -2033,9 +2033,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "SyncGuid",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "SyncGuid",
                 Description: "GUID of corresponding AD object.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -2048,9 +2048,9 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "LastSync",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "LastSync",
                 Description: "Date of last synchronization.",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -2060,7 +2060,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.DateTimeFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "PortalRoot",
         ParentTypeName: "Folder",
@@ -2072,7 +2072,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: ["Folder", "SystemFolder", "TrashBin", "ContentList", "CustomList", "Sites", "Domains", "Profiles", "Resources", "Workspace"],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "ProfileDomain",
         ParentTypeName: "Folder",
@@ -2084,7 +2084,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: ["UserProfile"],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "Profiles",
         ParentTypeName: "Folder",
@@ -2096,7 +2096,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: ["ProfileDomain"],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "RuntimeContentContainer",
         ParentTypeName: "Folder",
@@ -2108,7 +2108,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: [],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "Sites",
         ParentTypeName: "Folder",
@@ -2120,7 +2120,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: ["Site"],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "SmartFolder",
         ParentTypeName: "Folder",
@@ -2134,9 +2134,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "LongTextFieldSetting",
                 Name: "Query",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "Query",
                 Description: "Please give a query here that you want to use for collecting the children of this smart folder.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2151,16 +2151,16 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: false,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "0", Text: "Default", Enabled: true, Selected: false },
-                    {Value: "1", Text: "Enabled", Enabled: true, Selected: false },
-                    {Value: "2", Text: "Disabled", Enabled: true, Selected: false }
+                    { Value: "0", Text: "Default", Enabled: true, Selected: false },
+                    { Value: "1", Text: "Enabled", Enabled: true, Selected: false },
+                    { Value: "2", Text: "Disabled", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.DropDown,
                 EnumTypeName: "SenseNet.Search.FilterStatus",
                 Name: "EnableAutofilters",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ChoiceField",
                 DisplayName: "Enable autofilters",
                 Description: "If autofilters are enabled, system content will be filtered from the query.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2174,16 +2174,16 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: false,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "0", Text: "Default", Enabled: true, Selected: false },
-                    {Value: "1", Text: "Enabled", Enabled: true, Selected: false },
-                    {Value: "2", Text: "Disabled", Enabled: true, Selected: false }
+                    { Value: "0", Text: "Default", Enabled: true, Selected: false },
+                    { Value: "1", Text: "Enabled", Enabled: true, Selected: false },
+                    { Value: "2", Text: "Disabled", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.DropDown,
                 EnumTypeName: "SenseNet.Search.FilterStatus",
                 Name: "EnableLifespanFilter",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ChoiceField",
                 DisplayName: "Enable lifespan filter",
                 Description: "If lifespan filter is enabled, only valid content will be in the result.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2193,7 +2193,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.ChoiceFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "SystemFolder",
         ParentTypeName: "Folder",
@@ -2205,7 +2205,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: [],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "Resources",
         ParentTypeName: "SystemFolder",
@@ -2217,7 +2217,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: ["Resource"],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "TrashBag",
         ParentTypeName: "Folder",
@@ -2231,9 +2231,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "DateTimeFieldSetting",
                 Name: "KeepUntil",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Keep until",
                 Description: "The bag must be kept until this date.",
-                FieldDataType: "DateTime",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: true,
@@ -2245,9 +2245,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "OriginalPath",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Original path",
                 Description: "The path where the bag content were deleted from.",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: true,
@@ -2259,9 +2259,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "WorkspaceRelativePath",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Ctd-TrashBagen-USWorkspaceRelativePath-DisplayName",
                 Description: "Ctd-TrashBagen-USWorkspaceRelativePath-Description",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -2273,9 +2273,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "WorkspaceId",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Ctd-TrashBagen-USWorkspaceId-DisplayName",
                 Description: "Ctd-TrashBagen-USWorkspaceId-Description",
-                FieldDataType: "Int32",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -2288,9 +2288,9 @@ export const SchemaStore: Schema[] = [
                 Type: "ReferenceFieldSetting",
                 AllowMultiple: false,
                 Name: "DeletedContent",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Deleted content",
                 Description: "The actual deleted content inside this trash bag.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -2300,7 +2300,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.ReferenceFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "Workspace",
         ParentTypeName: "Folder",
@@ -2317,9 +2317,9 @@ export const SchemaStore: Schema[] = [
                 AllowedTypes: ["User"],
                 SelectionRoots: ["/Root/IMS", "/Root"],
                 Name: "Manager",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Project manager",
                 Description: "The person responsible for the project.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2332,8 +2332,8 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "Deadline",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Project deadline",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2345,9 +2345,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "IsActive",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Active",
                 Description: "This workspace is currently active.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: true,
                 DefaultValue: "true",
@@ -2363,8 +2363,8 @@ export const SchemaStore: Schema[] = [
                 AllowedTypes: [],
                 SelectionRoots: ["/Root/Skins"],
                 Name: "WorkspaceSkin",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Skin",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2376,9 +2376,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "IsCritical",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Is critical",
                 Description: "This workspace is currently in a critical status.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -2390,9 +2390,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "IsWallContainer",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Wall Container",
                 Description: "This workspace is configured to contain a wall - this indicates that posts are created under this workspace if Content are shared anywhere below this path.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -2404,7 +2404,7 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "IsFollowed",
-                FieldDataType: "Boolean",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -2414,7 +2414,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.NullFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "Site",
         ParentTypeName: "Workspace",
@@ -2430,15 +2430,15 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: false,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "en", Text: "English", Enabled: true, Selected: true },
-                    {Value: "hu", Text: "Hungarian", Enabled: true, Selected: false }
+                    { Value: "en", Text: "English", Enabled: true, Selected: true },
+                    { Value: "hu", Text: "Hungarian", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.DropDown,
                 EnumTypeName: "",
                 Name: "Language",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ChoiceField",
                 DisplayName: "Language",
                 Description: "Please define the default language of this site.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2450,9 +2450,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "EnableClientBasedCulture",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Enable client-based culture",
                 Description: "Enable this to allow user browser settings override default site language settings.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2464,9 +2464,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "EnableUserBasedCulture",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Enable user-based culture",
                 Description: "Enable this to allow user language settings override default site language settings.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2478,9 +2478,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "UrlList",
+                FieldClassName: "SenseNet.ContentRepository.Fields.UrlListField",
                 DisplayName: "URL list",
                 Description: "Select the URLs to associate with this Site.",
-                FieldDataType: "IDictionary`2",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2494,9 +2494,9 @@ export const SchemaStore: Schema[] = [
                 AllowMultiple: false,
                 SelectionRoots: ["."],
                 Name: "StartPage",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Alternative start page",
                 Description: "If set, the site will use this start page instead of the default.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2510,9 +2510,9 @@ export const SchemaStore: Schema[] = [
                 AllowMultiple: false,
                 SelectionRoots: ["."],
                 Name: "LoginPage",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Login page",
                 Description: "The login page to display when a user tries to access restricted Content (Forms authentication only).",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2527,9 +2527,9 @@ export const SchemaStore: Schema[] = [
                 AllowedTypes: [],
                 SelectionRoots: ["/Root/Skins"],
                 Name: "SiteSkin",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Skin",
                 Description: "",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2541,9 +2541,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "DenyCrossSiteAccess",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Deny cross-site access",
                 Description: "If set, content under this site can only be accessed via this site and not via other sites using a Root relative path.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2553,7 +2553,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.NullFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "TrashBin",
         ParentTypeName: "Workspace",
@@ -2568,9 +2568,9 @@ export const SchemaStore: Schema[] = [
                 Type: "IntegerFieldSetting",
                 MinValue: 0,
                 Name: "MinRetentionTime",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Minimum retention time (in days)",
                 Description: "",
-                FieldDataType: "Int32",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2583,9 +2583,9 @@ export const SchemaStore: Schema[] = [
                 Type: "IntegerFieldSetting",
                 MinValue: 0,
                 Name: "SizeQuota",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Size quota",
                 Description: "Set the size quote for the trash bin (Megabytes).",
-                FieldDataType: "Int32",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2598,9 +2598,9 @@ export const SchemaStore: Schema[] = [
                 Type: "IntegerFieldSetting",
                 MinValue: 0,
                 Name: "BagCapacity",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Trashbag capacity",
                 Description: "The maximum number of nodes accepted for trash in a single operation.",
-                FieldDataType: "Int32",
                 ReadOnly: false,
                 Compulsory: false,
                 DefaultValue: "100",
@@ -2611,7 +2611,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.IntegerFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "UserProfile",
         ParentTypeName: "Workspace",
@@ -2628,8 +2628,8 @@ export const SchemaStore: Schema[] = [
                 AllowedTypes: ["User"],
                 SelectionRoots: ["/Root/IMS"],
                 Name: "User",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "User",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: true,
@@ -2639,7 +2639,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.ReferenceFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "Group",
         ParentTypeName: "GenericContent",
@@ -2656,9 +2656,9 @@ export const SchemaStore: Schema[] = [
                 AllowedTypes: ["User", "Group"],
                 SelectionRoots: ["/Root/IMS", "/Root"],
                 Name: "Members",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Members",
                 Description: "The members of this group.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2670,9 +2670,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "SyncGuid",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Sync Guid",
                 Description: "GUID of corresponding AD object.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -2685,9 +2685,9 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "LastSync",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Last synchronization",
                 Description: "Date of last synchronization.",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -2697,7 +2697,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.DateTimeFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "ListItem",
         ParentTypeName: "GenericContent",
@@ -2709,7 +2709,7 @@ export const SchemaStore: Schema[] = [
         AllowedChildTypes: [],
         FieldSettings: [
         ]
-        },
+    },
     {
         ContentTypeName: "CustomListItem",
         ParentTypeName: "ListItem",
@@ -2723,7 +2723,7 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "WorkflowsRunning",
-                FieldDataType: "Boolean",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -2733,7 +2733,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.NullFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "Memo",
         ParentTypeName: "ListItem",
@@ -2748,9 +2748,9 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "Date",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Date",
                 Description: "Please set the due date of the memo.",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: false,
                 DefaultValue: "[Script:jScript] DateTime.UtcNow; [/Script]",
@@ -2765,16 +2765,16 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: true,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "generic", Text: "Generic", Enabled: true, Selected: true },
-                    {Value: "iso", Text: "ISO", Enabled: true, Selected: false },
-                    {Value: "iaudit", Text: "Internal audit", Enabled: true, Selected: false }
+                    { Value: "generic", Text: "Generic", Enabled: true, Selected: true },
+                    { Value: "iso", Text: "ISO", Enabled: true, Selected: false },
+                    { Value: "iaudit", Text: "Internal audit", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.DropDown,
                 EnumTypeName: "",
                 Name: "MemoType",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ChoiceField",
                 DisplayName: "Memo type",
                 Description: "Type of the memo.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2787,9 +2787,9 @@ export const SchemaStore: Schema[] = [
                 Type: "ReferenceFieldSetting",
                 AllowMultiple: true,
                 Name: "SeeAlso",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "See also...",
                 Description: "A list of content this memo pertains to.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2799,7 +2799,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.ReferenceFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "Task",
         ParentTypeName: "ListItem",
@@ -2814,8 +2814,8 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "StartDate",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Start date",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2828,8 +2828,8 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "DueDate",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Due date",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: true,
                 Visible: true,
@@ -2844,9 +2844,9 @@ export const SchemaStore: Schema[] = [
                 AllowedTypes: ["User"],
                 SelectionRoots: ["/Root/IMS", "/Root"],
                 Name: "AssignedTo",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Assigned to",
                 Description: "List of internal stakeholders.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2860,15 +2860,15 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: false,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "1", Text: "Urgent", Enabled: true, Selected: false },
-                    {Value: "2", Text: "Normal", Enabled: true, Selected: true },
-                    {Value: "3", Text: "Not urgent", Enabled: true, Selected: false }
+                    { Value: "1", Text: "Urgent", Enabled: true, Selected: false },
+                    { Value: "2", Text: "Normal", Enabled: true, Selected: true },
+                    { Value: "3", Text: "Not urgent", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.DropDown,
                 EnumTypeName: "",
                 Name: "Priority",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ChoiceField",
                 DisplayName: "Priority",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2882,17 +2882,17 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: false,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "pending", Text: "Pending", Enabled: true, Selected: false },
-                    {Value: "active", Text: "Active", Enabled: true, Selected: true },
-                    {Value: "completed", Text: "Completed", Enabled: true, Selected: false },
-                    {Value: "deferred", Text: "Deferred", Enabled: true, Selected: false },
-                    {Value: "waiting", Text: "Waiting", Enabled: true, Selected: false }
+                    { Value: "pending", Text: "Pending", Enabled: true, Selected: false },
+                    { Value: "active", Text: "Active", Enabled: true, Selected: true },
+                    { Value: "completed", Text: "Completed", Enabled: true, Selected: false },
+                    { Value: "deferred", Text: "Deferred", Enabled: true, Selected: false },
+                    { Value: "waiting", Text: "Waiting", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.DropDown,
                 EnumTypeName: "",
                 Name: "Status",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ChoiceField",
                 DisplayName: "Status",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2907,9 +2907,9 @@ export const SchemaStore: Schema[] = [
                 MaxValue: 100,
                 ShowAsPercentage: true,
                 Name: "TaskCompletion",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Completion",
                 Description: "Completion percentage of the task.",
-                FieldDataType: "Int32",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2921,9 +2921,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "IntegerFieldSetting",
                 Name: "RemainingDays",
+                FieldClassName: "SenseNet.ContentRepository.Fields.IntegerField",
                 DisplayName: "Remaining days",
                 Description: "Number of remaining days.",
-                FieldDataType: "Int32",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -2935,8 +2935,8 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "DueText",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "DueText",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -2948,9 +2948,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "DueCssClass",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Due style",
                 Description: "Css class",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -2960,7 +2960,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.ShortTextFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "Query",
         ParentTypeName: "GenericContent",
@@ -2974,9 +2974,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "LongTextFieldSetting",
                 Name: "Query",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "Query",
                 Description: "Query text.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -2991,15 +2991,15 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: false,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "Public", Text: "Public", Enabled: true, Selected: true },
-                    {Value: "Private", Text: "Private", Enabled: true, Selected: false }
+                    { Value: "Public", Text: "Public", Enabled: true, Selected: true },
+                    { Value: "Private", Text: "Private", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.RadioButtons,
                 EnumTypeName: "",
                 Name: "QueryType",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ChoiceField",
                 DisplayName: "Query type",
                 Description: "Public queries are stored under the workspace, private queries are stored under the user profile.",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: true,
@@ -3009,7 +3009,7 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.ChoiceFieldSetting,
         ]
-        },
+    },
     {
         ContentTypeName: "User",
         ParentTypeName: "GenericContent",
@@ -3024,9 +3024,9 @@ export const SchemaStore: Schema[] = [
                 Type: "ShortTextFieldSetting",
                 MaxLength: 100,
                 Name: "LoginName",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Login name",
                 Description: "The name that the user has to type in on login forms (in some cases along with the domain name). It has to be unique under a domain.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: true,
                 Visible: true,
@@ -3038,9 +3038,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "JobTitle",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Job title",
                 Description: "",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -3052,9 +3052,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "Enabled",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BooleanField",
                 DisplayName: "Enabled",
                 Description: "User account is enabled.",
-                FieldDataType: "Boolean",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -3066,9 +3066,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "Domain",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Domain",
                 Description: "The domain of the user.",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: true,
@@ -3081,9 +3081,9 @@ export const SchemaStore: Schema[] = [
                 Type: "ShortTextFieldSetting",
                 Regex: "^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$",
                 Name: "Email",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "E-mail",
                 Description: "The e-mail of the user.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: true,
                 Visible: true,
@@ -3096,9 +3096,9 @@ export const SchemaStore: Schema[] = [
                 Type: "ShortTextFieldSetting",
                 Regex: "[^<]+",
                 Name: "FullName",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Full name",
                 Description: "Full name of the user (e.g. John Smith).",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: true,
                 Visible: true,
@@ -3111,8 +3111,8 @@ export const SchemaStore: Schema[] = [
                 Type: "ReferenceFieldSetting",
                 AllowMultiple: false,
                 Name: "ImageRef",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Cover image (reference)",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -3124,8 +3124,8 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "BinaryFieldSetting",
                 Name: "ImageData",
+                FieldClassName: "SenseNet.ContentRepository.Fields.BinaryField",
                 DisplayName: "Cover image (binarydata)",
-                FieldDataType: "BinaryData",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -3137,9 +3137,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "NullFieldSetting",
                 Name: "Avatar",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ImageField",
                 DisplayName: "Avatar",
                 Description: "Avatar image of user.",
-                FieldDataType: "ImageFieldData",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -3155,9 +3155,9 @@ export const SchemaStore: Schema[] = [
                 ReenterDescription: "Re-enter password.",
                 PasswordHistoryLength: 0,
                 Name: "Password",
+                FieldClassName: "SenseNet.ContentRepository.Fields.PasswordField",
                 DisplayName: "Password",
                 Description: "User password.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: true,
                 Visible: true,
@@ -3169,9 +3169,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "SyncGuid",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "SyncGuid",
                 Description: "GUID of corresponding AD object.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -3184,9 +3184,9 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "LastSync",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "LastSync",
                 Description: "Date of last synchronization.",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -3198,9 +3198,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "CaptchaFieldSetting",
                 Name: "Captcha",
+                FieldClassName: "SenseNet.ContentRepository.Fields.CaptchaField",
                 DisplayName: "Captcha text",
                 Description: "Captcha text entered by the user.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -3215,9 +3215,9 @@ export const SchemaStore: Schema[] = [
                 AllowedTypes: ["User"],
                 SelectionRoots: ["/Root/IMS"],
                 Name: "Manager",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Manager",
                 Description: "Manager of the user.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -3229,9 +3229,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "Department",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Department",
                 Description: "Department of employee.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -3243,9 +3243,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "Languages",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Languages",
                 Description: "Spoken languages.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -3258,9 +3258,9 @@ export const SchemaStore: Schema[] = [
                 Type: "ShortTextFieldSetting",
                 Regex: "(^\\d*([-\\s\\+\\(\\)]\\d*)*$)?",
                 Name: "Phone",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Phone",
                 Description: "Phone number. (e.g. +123456789 or 1234).",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -3274,16 +3274,16 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: false,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "...", Text: "...", Enabled: true, Selected: false },
-                    {Value: "Female", Text: "Female", Enabled: true, Selected: false },
-                    {Value: "Male", Text: "Male", Enabled: true, Selected: false }
+                    { Value: "...", Text: "...", Enabled: true, Selected: false },
+                    { Value: "Female", Text: "Female", Enabled: true, Selected: false },
+                    { Value: "Male", Text: "Male", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.DropDown,
                 EnumTypeName: "",
                 Name: "Gender",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ChoiceField",
                 DisplayName: "Gender",
                 Description: "Select one.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -3297,16 +3297,16 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: false,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "...", Text: "...", Enabled: true, Selected: false },
-                    {Value: "Single", Text: "Single", Enabled: true, Selected: false },
-                    {Value: "Married", Text: "Married", Enabled: true, Selected: false }
+                    { Value: "...", Text: "...", Enabled: true, Selected: false },
+                    { Value: "Single", Text: "Single", Enabled: true, Selected: false },
+                    { Value: "Married", Text: "Married", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.DropDown,
                 EnumTypeName: "",
                 Name: "MaritalStatus",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ChoiceField",
                 DisplayName: "Marital status",
                 Description: "Select one.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -3319,8 +3319,8 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.Date,
                 Name: "BirthDate",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Birth date",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -3333,9 +3333,9 @@ export const SchemaStore: Schema[] = [
                 Type: "LongTextFieldSetting",
                 TextType: FieldSettings.TextType.LongText,
                 Name: "Education",
+                FieldClassName: "SenseNet.ContentRepository.Fields.LongTextField",
                 DisplayName: "Education",
                 Description: "List of educations - e.g. high school, university.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -3348,8 +3348,8 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "TwitterAccount",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Twitter account",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -3361,9 +3361,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "FacebookURL",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Facebook URL",
                 Description: "http://www.facebook.com/USERNAME.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -3375,9 +3375,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "LinkedInURL",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "LinkedIn URL",
                 Description: "http://www.linkedin.com/USERNAME.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -3391,15 +3391,15 @@ export const SchemaStore: Schema[] = [
                 AllowExtraValue: false,
                 AllowMultiple: false,
                 Options: [
-                    {Value: "en", Text: "English", Enabled: true, Selected: true },
-                    {Value: "hu", Text: "Hungarian", Enabled: true, Selected: false }
+                    { Value: "en", Text: "English", Enabled: true, Selected: true },
+                    { Value: "hu", Text: "Hungarian", Enabled: true, Selected: false }
                 ],
                 DisplayChoice: FieldSettings.DisplayChoice.DropDown,
                 EnumTypeName: "",
                 Name: "Language",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ChoiceField",
                 DisplayName: "Selected language",
                 Description: "Language used to display texts on the site, if it is available.",
-                FieldDataType: "String",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: true,
@@ -3413,9 +3413,9 @@ export const SchemaStore: Schema[] = [
                 AllowMultiple: true,
                 AllowedTypes: ["Workspace"],
                 Name: "FollowedWorkspaces",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ReferenceField",
                 DisplayName: "Followed workspaces",
                 Description: "List of workspaces followed by the user.",
-                FieldDataType: "IEnumerable`1",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -3427,9 +3427,9 @@ export const SchemaStore: Schema[] = [
             {
                 Type: "ShortTextFieldSetting",
                 Name: "ProfilePath",
+                FieldClassName: "SenseNet.ContentRepository.Fields.ShortTextField",
                 DisplayName: "Profile path",
                 Description: "Path of the user's personal workspace.",
-                FieldDataType: "String",
                 ReadOnly: true,
                 Compulsory: false,
                 Visible: false,
@@ -3442,9 +3442,9 @@ export const SchemaStore: Schema[] = [
                 Type: "DateTimeFieldSetting",
                 DateTimeMode: FieldSettings.DateTimeMode.DateAndTime,
                 Name: "LastLoggedOut",
+                FieldClassName: "SenseNet.ContentRepository.Fields.DateTimeField",
                 DisplayName: "Last logout date",
                 Description: "Date and time of when the user logged out from all devices.",
-                FieldDataType: "DateTime",
                 ReadOnly: false,
                 Compulsory: false,
                 Visible: false,
@@ -3454,5 +3454,5 @@ export const SchemaStore: Schema[] = [
                 DefaultOrder: 0
             } as FieldSettings.DateTimeFieldSetting,
         ]
-        },
+    },
 ];
