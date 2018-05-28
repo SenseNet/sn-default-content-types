@@ -51,9 +51,9 @@ export function isFieldSettingOfType<T extends FieldSetting>(setting: FieldSetti
 export class FieldSetting {
     public Name!: string;
     public Type!: string;
+    public FieldClassName!: string;
     public DisplayName?: string;
     public Description?: string;
-    public FieldDataType?: string;
     public Icon?: string;
     public ReadOnly?: boolean;
     public Compulsory?: boolean;
